@@ -9,8 +9,8 @@ export function getCategoriesSuccess(categories) {
 }
 
 export function getCategories() {
-  return function(dispatch) {
-    let url = "http://localhost:3000/categories";
+  return function (dispatch) {
+    let url = "http://localhost:4400/categories";
 
     return fetch(url)
       .then(response => response.json())

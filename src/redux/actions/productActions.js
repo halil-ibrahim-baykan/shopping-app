@@ -1,12 +1,15 @@
 import * as actionTypes from "./actionTypes";
 
-export function getProductsSuccess(categories) {
-  return { type: actionTypes.GET_CATEGORIES_SUCCESS, payload: categories }; // result = categories
+export function getProductsSuccess(products) {
+  return { type: actionTypes.GET_PRODUCTS_SUCCESS, payload: products };
 }
 
-export function getProducts() {
-  return function(dispatch) {
-    let url = "http://localhost:4400/categories";
+export function getProducts(categoryId) {
+  return function (dispatch) {
+    let url = "http://localhost:4400/products";
+    if (categoryId) {
+      url = url + "?categoryId=" + categoryId
+    }
 
     return fetch(url)
       .then(response => response.json())
